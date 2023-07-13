@@ -1,38 +1,251 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  max-width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.footer img {
+  width: 15%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.footer {
+  color: white;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
+  justify-self: center;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background: #1a1915;
+  height: 8rem;
+}
+
+#container-nav {
+  background: #184274;
+
+  height: 4rem;
+  max-width: 100%;
+}
+
+nav {
+  background: #184274;
+  /* background: linear-gradient(to bottom right, #276cbe, #1a237e); */
+
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  max-width: 60rem;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+nav img {
+  width: 34%;
+}
+
+.link-item {
   color: white;
+  padding-right: 1rem;
+  text-decoration: none;
+  font-size: 1.5rem;
 }
 
-.App-link {
-  color: #61dafb;
+.section {
+  max-width: 100%;
+  width: 100%;
+  padding: 0;
+  display: table;
+  margin: 0;
+  display: flex;
+  background-image: url("https://images.pexels.com/photos/91217/pexels-photo-91217.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.side-content {
+  width: 100%;
+}
+
+.side {
+  text-align: center;
+  width: 100%;
+  padding: 6rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.side h1 {
+  font-size: 2.5rem;
+}
+
+.div-button {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.div-button button {
+  cursor: pointer;
+  border: 2px solid #95bce9;
+  background-color: transparent;
+  border-radius: 0.5rem;
+  height: 50px;
+  width: 200px;
+  color: #fff;
+  font-size: 1.5em;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+}
+
+.div-button button:hover {
+  background-color: #1a237e;
+  color: #fff;
+}
+
+.login {
+  background-color: white;
+  box-shadow: 0 1px 25px rgba(0, 0, 0, 0.167);
+  padding: 2rem;
+  border-radius: 2rem;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.login input {
+  display: block;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  width: 80%;
+}
+.login input:focus {
+  outline: none;
+  border-color: #184274;
+  box-shadow: 0 0 5px #1a237e;
+}
+.login button {
+  font-size: 1rem;
+  padding: 10px 32px;
+  background-color: #184274;
+  color: white;
+  border-radius: 9px;
+  border: none;
+}
+.login button:hover {
+  background-color: #4186d8;
+  color: white;
+  cursor: pointer;
+}
+#container-nav a:hover {
+  color: #95bce9;
+}
+
+/* Responsive styles */
+
+@media only screen and (max-width: 768px) {
+  /* Adjust the styles for screens up to 768px width (mobile devices) */
+
+  .footer img {
+    width: 20%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .footer {
+    padding: 1rem;
+    height: 8rem;
+  }
+
+  nav img {
+    width: 50%;
+  }
+
+  .link-item {
+    font-size: 1.2rem;
+  }
+
+  .section {
+    padding: 0;
+  }
+
+  .side h1 {
+    font-size: 2rem;
+  }
+
+  .div-button button {
+    height: 40px;
+    width: 160px;
+    font-size: 1.2em;
+  }
+
+  .login {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  /* Adjust the styles for screens up to 480px width (smaller mobile devices) */
+
+  .footer img {
+    display: none;
+  }
+
+  .footer {
+    padding: 0.5rem;
+    height: 5rem;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  nav img {
+    width: 70%;
+  }
+
+  .link-item {
+    font-size: 1rem;
+    padding-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .section {
+    padding: 0 2%;
+    height: auto;
+  }
+
+  .side h1 {
+    font-size: 1.8rem;
+  }
+
+  .div-button button {
+    height: 30px;
+    width: 140px;
+    font-size: 1em;
+  }
+
+  .login {
+    width: 250px;
+    height: 250px;
+    padding: 1rem;
   }
 }

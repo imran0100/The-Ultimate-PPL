@@ -1,0 +1,56 @@
+.section2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Equal width columns */
+  height: 100vh;
+}
+
+.img-div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Start image from right side */
+  margin-right: 4rem;
+}
+
+.img-phone {
+  max-width: 40%;
+  display: block;
+  /* Center the image horizontally */
+}
+
+.section2-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 20px;
+  box-sizing: border-box;
+  justify-content: center; /* Include padding in the width calculation */
+}
+.section2-right p {
+  line-height: 1.8;
+  font-size: 1.2rem;
+  padding-right: 2rem;
+}
+.section2-heading {
+  text-align: left; /* Align heading to the left */
+}
+
+.section2 p {
+  text-align: left; /* Align paragraph to the left */
+}
+
+@media screen and (max-width: 768px) {
+  .section2 {
+    grid-template-columns: 1fr; /* Single column layout on smaller screens */
+    height: auto; /* Adjust height to fit content */
+  }
+
+  .img-div {
+    justify-content: center; /* Center the image on smaller screens */
+    margin-right: 0; /* Remove right margin */
+    margin-bottom: 1.5rem; /* Add bottom margin for spacing */
+  }
+
+  .img-phone {
+    max-width: 80%; /* Adjust image width for smaller screens */
+  }
+}
