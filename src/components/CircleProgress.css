@@ -1,0 +1,24 @@
+.progressCircle {
+  width: 150px;
+  height: 150px;
+  margin-top: 16px;
+}
+
+.progressCircleBackground {
+  fill: none;
+  stroke: #d9d9d9; /* Color for the background circle */
+  stroke-width: 10;
+}
+
+.progressCircleForeground {
+  fill: none;
+  stroke: #18ad18; /* Color for the foreground circle */
+  stroke-width: 10;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease-in-out;
+}
+
+.progressPercentage {
+  font-size: 24px;
+  font-weight: bold;
+}

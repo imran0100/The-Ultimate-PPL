@@ -1,6 +1,9 @@
 .Pricing-Section {
   /* background: linear-gradient(to bottom right, #f2c232, #e39d2d); */
-  background: linear-gradient(to bottom right, #276cbe, #1a237e);
+  /* background: linear-gradient(to bottom right, #276cbe, #1a237e); */
+
+  /* background: linear-gradient(to bottom right, #ffd700, #ffc107); */
+  background: linear-gradient(to bottom right, #ffc107, #e39d2d);
 
   padding: 5rem;
 }

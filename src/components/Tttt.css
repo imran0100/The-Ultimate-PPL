@@ -1,0 +1,143 @@
+.questionOption a {
+  text-decoration: none;
+  font-size: 40px;
+  float: left;
+  line-height: 60px;
+  opacity: 0.4;
+  font-weight: 300;
+  padding-left: 6px;
+  cursor: pointer;
+  color: black;
+}
+
+.questionOption .texter {
+  margin-left: 25px;
+  font-size: 14px;
+  padding: 10px;
+  padding-left: 25px;
+  padding-top: 20px;
+}
+
+li.answerColorTrue {
+  border: 1px solid #18ad18;
+}
+
+li.answerColorFalse {
+  border: 1px solid red;
+}
+
+.questionOption {
+  border: 1px solid #d9d9d9;
+  min-height: 77px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  margin-bottom: 18px;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  position: relative;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.answerColorTrue {
+  color: #18ad18 !important;
+  cursor: default;
+  font-weight: 600;
+}
+
+.answerColorFalse {
+  color: red !important;
+  cursor: default;
+  font-weight: 600;
+}
+
+.questionText {
+  float: left;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  font-size: 15px;
+  font-weight: 500 !important;
+  word-break: break-word;
+}
+
+.tabcontent {
+  margin: 0 auto;
+  box-sizing: border-box;
+  background-color: #f8f8f8;
+  min-height: 300px;
+  width: 90%;
+  float: left;
+  padding: 2rem;
+  margin: 6rem;
+  font-size: 15px;
+  box-shadow: rgb(0 0 0 / 15%) 0 2px 5px -1px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.questionOptionList {
+  list-style-type: none;
+  padding: 0;
+  display: inline-block;
+  overflow: auto;
+  width: 100%;
+}
+.next {
+  color: black;
+  cursor: pointer;
+  background-color: white;
+  padding: 15px 30px;
+  border: 1px solid #d9d9d9;
+  border-radius: 9px;
+  font-size: 16px;
+}
+.next:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* =================================================================*/
+.quizCompleteHeading {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.quizCompleteScore {
+  font-size: 4rem;
+  text-align: center;
+  color: green;
+  margin-bottom: 2rem;
+}
+.progressCircleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.quizCompletedContainer .next {
+  margin: 2rem auto !important;
+  display: block;
+}
+.progressPercentage {
+  font-size: 6rem !important;
+}
+
+.QuestionFilter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+#filter {
+  padding: 0.5rem;
+  border-radius: 9px;
+}
+@media screen and (max-width: 768px) {
+  .tabcontent {
+    width: 90%;
+    margin: 2rem;
+  }
+}

@@ -53,7 +53,7 @@ function BookTable() {
   ];
 
   return (
-    <ReactScrollAnimation animateIn="slideInUp" animateOnce={true}>
+    <ReactScrollAnimation animateIn="zoomIn" animateOnce={true}>
       <div className="book-table">
         <table>
           <thead>

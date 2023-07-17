@@ -175,14 +175,23 @@ const Dashboard = () => {
       </div>
 
       <hr className="dashboard-divider" />
-      <h3>Select a Subject:</h3>
+
       <div className="dashboard-section">
-        <div className="subject-options">
-          {data.map((item) => (
-            <div key={item.id} className="subject-option">
-              {item.subject}
-            </div>
-          ))}
+        <div className="book-table">
+          <table>
+            <thead>
+              <tr>
+                <th> Select a Subject</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((book, index) => (
+                <tr key={index}>
+                  <td>{book.subject}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

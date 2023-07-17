@@ -1,12 +1,17 @@
 import React from "react";
 import image from "../logo/20230712_231252 (1) (1).png";
 import "./Section2.css";
+import ReactScrollAnimation from "react-scroll-animation";
+import "animate.css/animate.min.css"; // Import the animation styles
+
 function Section2() {
   return (
     <div className="section2">
-      <div className="img-div">
-        <img className="img-phone" src={image} alt="Smartphone" />
-      </div>
+      <ReactScrollAnimation animateIn="fadeIn" animateOnce={true}>
+        <div className="img-div">
+          <img className="img-phone" src={image} alt="Smartphone" />
+        </div>
+      </ReactScrollAnimation>
       <div className="section2-right">
         <h1 className="section2-heading">What Is The Difference?</h1>
         <p>
