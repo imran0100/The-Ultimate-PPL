@@ -1,11 +1,11 @@
-.login-container {
+.signup-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-.login-form {
+.signup-form {
   display: flex;
   flex-direction: column;
   width: 400px;
@@ -55,17 +55,22 @@ input {
   background-color: #0056b3;
 }
 
-.signup-message {
+.signin-message {
   text-align: center;
   margin-top: 20px;
   font-size: 14px;
 }
 
-.signup-message a {
+.signin-message a {
   color: #007bff;
   text-decoration: none;
 }
 
-.signup-message a:hover {
+.signin-message a:hover {
   text-decoration: underline;
+}
+/* Add styles for the mandatory symbols */
+.mandatory {
+  color: red;
+  margin-left: 5px;
 }

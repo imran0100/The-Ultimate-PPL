@@ -41,6 +41,11 @@ import LoginPage from "./components/LoginPage";
 import SignUpPage from "./components/SignUpPage";
 import TestPage from "./components/TestPage";
 import Tttt from "./components/Tttt";
+import QuestionForm from "./components/QuestionForm";
+import Admin from "./components/Admin";
+import ChooseSubject from "./components/ChooseSubject";
+import UserProgress from "./components/UserProgress";
+import PrivateRoutes from "./components/PrivateRoutes";
 function App() {
   return (
     <div className="App">
@@ -54,10 +59,19 @@ function App() {
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/section2" element={<Section2 />} />
           <Route path="/section3" element={<Section3 />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+
+          <Route element={<PrivateRoutes />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/tttt/:id" element={<Tttt />} />
+            <Route path="/progress" element={<UserProgress />} />
+            <Route path="/question/:id" element={<QuestionForm />} />
+            <Route path="/choose" element={<ChooseSubject />} />
+            <Route path="/admin" element={<Admin />} />
+          </Route>
+
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/test" element={<TestPage />} />
-          <Route path="/tttt" element={<Tttt />} />
+          {/* <Route path="/test" element={<TestPage />} /> */}
         </Routes>
       </Router>
     </div>

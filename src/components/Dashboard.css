@@ -8,6 +8,8 @@
 .dashboard-section {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .dashboard-divider {
@@ -31,4 +33,19 @@
   border-radius: 5px;
   cursor: pointer;
   margin: 0.5rem;
+}
+
+.logout-btn,
+.see-progress-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.logout-btn {
+  background-color: #dc3545;
 }

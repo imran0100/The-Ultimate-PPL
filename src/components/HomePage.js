@@ -80,10 +80,10 @@ function HomePage() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    navigate("/tttt");
+    navigate("/login");
   };
   const handleSignup = () => {
-    navigate("/dashboard");
+    navigate("/signup");
   };
   return (
     <div className="container animate__animated animate__fadeIn">

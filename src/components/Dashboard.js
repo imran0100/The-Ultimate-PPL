@@ -1,16 +1,16 @@
-// import React from "react";
+// // import React from "react";
 
-// function Dashboard() {
-//   return (
-//     <div>
-//       Choose Subject
+// // function Dashboard() {
+// //   return (
+// //     <div>
+// //       Choose Subject
 
-//     </div>
-//   );
-// }
+// //     </div>
+// //   );
+// // }
 
-// export default Dashboard;
-// import React, { useState } from "react";
+// // export default Dashboard;
+// // import React, { useState } from "react";
 // import "./Dashboard.css";
 
 // const Dashboard = () => {
@@ -74,24 +74,24 @@
 //   {
 //     id: 5,
 //     subject: "Flight planning and performance",
-//   },
-//   {
-//     id: 6,
-//     subject: "Navigation",
-//   },
-//   {
-//     id: 7,
-//     subject: "Human performance and limitations",
-//   },
-//   {
-//     id: 8,
-//     subject: "Human performance and limitations",
-//   },
-//   {
-//     id: 9,
-//     subject: "Aircraft general knowledge",
-//   },
-// ];
+// //   },
+// //   {
+// //     id: 6,
+// //     subject: "Navigation",
+// //   },
+// //   {
+// //     id: 7,
+// //     subject: "Human performance and limitations",
+// //   },
+// //   {
+// //     id: 8,
+// //     subject: "Human performance and limitations",
+// //   },
+// //   {
+// //     id: 9,
+// //     subject: "Aircraft general knowledge",
+// //   },
+// // ];
 
 // const Dashboard = () => {
 //   return (
@@ -120,50 +120,43 @@
 // export default Dashboard;
 
 // export default Dashboard;
-//
-import React from "react";
-import "./Dashboard.css";
 
-const data = [
-  {
-    id: 1,
-    subject: "Air Law",
-  },
-  {
-    id: 2,
-    subject: "Principles of Flight",
-  },
-  {
-    id: 3,
-    subject: "Operational procedures",
-  },
-  {
-    id: 4,
-    subject: "Meteorology",
-  },
-  {
-    id: 5,
-    subject: "Flight planning and performance",
-  },
-  {
-    id: 6,
-    subject: "Navigation",
-  },
-  {
-    id: 7,
-    subject: "Human performance and limitations",
-  },
-  {
-    id: 8,
-    subject: "Human performance and limitations",
-  },
-  {
-    id: 9,
-    subject: "Aircraft general knowledge",
-  },
-];
+import React, { useEffect, useState } from "react";
+import "./Dashboard.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+  const [subjects, setSubjects] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "http://13.127.37.70:5000/api/v1/get_allsubjectlist"
+        );
+
+        setSubjects(response.data.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const navigate = useNavigate();
+
+  const handleProgress = () => {
+    navigate("/progress");
+  };
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    navigate("/");
+  };
+  const handleTest = (id) => {
+    navigate(`/tttt/${id}`);
+  };
   return (
     <div className="dashboard-container">
       <div className="dashboard-section">
@@ -171,6 +164,14 @@ const Dashboard = () => {
 
         <div className="dashboard-section">
           <h3>User</h3>
+          <div>
+            <button onClick={handleLogout} className="logout-btn">
+              Logout
+            </button>
+            <button onClick={handleProgress} className="see-progress-btn">
+              See Your Progress
+            </button>
+          </div>
         </div>
       </div>
 
@@ -185,9 +186,9 @@ const Dashboard = () => {
               </tr>
             </thead>
             <tbody>
-              {data.map((book, index) => (
-                <tr key={index}>
-                  <td>{book.subject}</td>
+              {subjects.map((book, index) => (
+                <tr onClick={() => handleTest(book.sub_id)} key={book.sub_id}>
+                  <td>{book.sub_name}</td>
                 </tr>
               ))}
             </tbody>
@@ -199,3 +200,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+//////////////////////////////////////////////////////////////////////////////////////////////
