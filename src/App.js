@@ -46,6 +46,8 @@ import Admin from "./components/Admin";
 import ChooseSubject from "./components/ChooseSubject";
 import UserProgress from "./components/UserProgress";
 import PrivateRoutes from "./components/PrivateRoutes";
+import CouponRedemption from "./components/CouponRedemption";
+import Success from "./components/Success";
 function App() {
   return (
     <div className="App">
@@ -71,6 +73,8 @@ function App() {
           </Route>
 
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/success" element={<Success />} />
+
           {/* <Route path="/test" element={<TestPage />} /> */}
         </Routes>
       </Router>

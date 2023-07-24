@@ -760,102 +760,47 @@
 
 // export default TestPage;
 
+// Tttt.js
+// Tttt.js
+// components/Quiz.js
 import React, { useEffect, useState } from "react";
+import CircleProgress from "./CircleProgress";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const TestPage = () => {
-  const [questions, setQuestions] = useState([
-    {
-      question_id: 1,
-      question_text: "What is the capital of France?",
-      options: ["London", "Paris", "Berlin", "Madrid"],
-      correct_option: 2,
-    },
-    {
-      question_id: 2,
-      question_text: "Who painted the Mona Lisa?",
-      options: [
-        "Leonardo da Vinci",
-        "Pablo Picasso",
-        "Vincent van Gogh",
-        "Michelangelo",
-      ],
-      correct_option: 0,
-    },
-    {
-      question_id: 3,
-      question_text: "Which planet is known as the Red Planet?",
-      options: ["Venus", "Mars", "Jupiter", "Saturn"],
-      correct_option: 1,
-    },
-  ]);
-
+  const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState("");
   const [score, setScore] = useState(0);
   const [resultData, setResultData] = useState([]);
-  const [filter, setFilter] = useState("all");
-  const userData = {
-    userId: 124,
-    recently_attempted: [
-      { question_id: 5 },
-      { question_id: 2 },
-      { question_id: 3 },
-    ],
-    not_attempted: [{ question_id: 4 }, { question_id: 5 }, { question_id: 6 }],
-    wrong_answered: [{ question_id: 9 }],
+
+  const navigate = useNavigate();
+
+  const handleTestAgain = () => {
+    navigate("/Dashboard");
   };
 
-  useEffect(() => {
-    applyFilter();
-  }, [questions, filter]);
-
-  const applyFilter = () => {
-    let filteredQuestions = [];
-
-    if (filter === "recent") {
-      filteredQuestions = questions.filter((question) =>
-        userData.recently_attempted.some(
-          (attempted) => attempted.question_id === question.question_id
-        )
-      );
-    } else if (filter === "incorrect") {
-      filteredQuestions = questions.filter((question) =>
-        userData.wrong_answered.some(
-          (wrong) => wrong.question_id === question.question_id
-        )
-      );
-    } else if (filter === "not-answered") {
-      filteredQuestions = questions.filter((question) =>
-        userData.not_attempted.some(
-          (notAttempted) => notAttempted.question_id === question.question_id
-        )
-      );
-    } else {
-      filteredQuestions = questions;
-    }
-
-    setQuestions(filteredQuestions);
-    setCurrentQuestion(0);
-  };
-
-  const handleAnswerSelect = (answer) => {
-    setSelectedAnswer(answer);
+  const handleAnswerSelect = (answerIndex) => {
+    setSelectedAnswer(answerIndex);
   };
 
   const handleNextQuestion = () => {
     const currentQuestionObj = questions[currentQuestion];
-    const correctAnswerIndex = currentQuestionObj.correct_option;
-    const correctAnswer = currentQuestionObj.options[correctAnswerIndex];
+    const correctAnswerIndex = currentQuestionObj.options.indexOf(
+      currentQuestionObj.correct_answer
+    );
+    const isAnswerCorrect = selectedAnswer === correctAnswerIndex;
 
-    if (selectedAnswer === correctAnswer) {
+    if (isAnswerCorrect) {
       setScore(score + 1);
     }
 
     const questionData = {
-      question: currentQuestionObj.question_text,
-      correctAnswer,
-      userAnswer: selectedAnswer,
-      isCorrect: selectedAnswer === correctAnswer,
+      question: currentQuestionObj.qustion_name,
+      correctAnswer: currentQuestionObj.options[correctAnswerIndex],
+      userAnswer: currentQuestionObj.options[selectedAnswer],
+      isCorrect: isAnswerCorrect,
     };
 
     setResultData((prevResultData) => [...prevResultData, questionData]);
@@ -864,8 +809,42 @@ const TestPage = () => {
     setCurrentQuestion(currentQuestion + 1);
   };
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "http://13.127.37.70:5000/api/v1/getallquestion"
+        );
+        setQuestions(response.data.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   if (questions.length === 0) {
     return <div>Loading...</div>;
+  }
+
+  if (currentQuestion >= questions.length) {
+    const progressPercentage = Math.round((score / questions.length) * 100);
+
+    return (
+      <div className="quizCompletedContainer">
+        <h1 className="quizCompleteHeading">Test Completed!</h1>
+        <p className="quizCompleteScore">Your Score: {score}</p>
+        <div className="progressCircleContainer">
+          <CircleProgress percentage={progressPercentage} />
+          <span className="progressPercentage">{progressPercentage}%</span>
+        </div>
+        <button onClick={handleTestAgain} className="next">
+          Start Again
+        </button>
+      </div>
+    );
   }
 
   const currentQuestionObj = questions[currentQuestion];
@@ -876,38 +855,50 @@ const TestPage = () => {
 
   const options = currentQuestionObj.options;
 
-  if (options.length === 0) {
-    return <div>No questions found.</div>;
-  }
-
   return (
-    <div>
-      <h2>Question {currentQuestion + 1}</h2>
-      <p>{currentQuestionObj.question_text}</p>
-      <label htmlFor="filter">Filter:</label>
-      <select
-        id="filter"
-        value={filter}
-        onChange={(e) => setFilter(e.target.value)}
-      >
-        <option value="all">All</option>
-        <option value="recent">Recently Seen</option>
-        <option value="incorrect">Incorrectly Answered</option>
-        <option value="not-answered">Not Answered Before</option>
-      </select>
-      <ul>
+    <div className="tabcontent">
+      <div className="QuestionFilter">
+        <span>Filter Questions</span>
+        <select id="filter">
+          <option value="all">All</option>
+          <option value="recent">Recently Seen</option>
+          <option value="incorrect">Incorrectly Answered</option>
+          <option value="not-answered">Not Answered Before</option>
+        </select>
+      </div>
+
+      <div className="questionText">
+        <span>{currentQuestionObj.qustion_name}</span>
+      </div>
+      <ul className="questionOptionList">
         {options.map((option, index) => (
-          <li key={index}>
-            <button
-              onClick={() => handleAnswerSelect(option)}
-              disabled={selectedAnswer !== ""}
-            >
-              {option}
-            </button>
+          <li
+            key={index}
+            className={`questionOption ${
+              selectedAnswer !== "" &&
+              (selectedAnswer === index
+                ? "answerColor" +
+                  (index === options.indexOf(currentQuestionObj.correct_answer)
+                    ? "True"
+                    : "False")
+                : index === options.indexOf(currentQuestionObj.correct_answer)
+                ? "answerColorTrue"
+                : "")
+            }`}
+            onClick={() => handleAnswerSelect(index)}
+          >
+            <a className="cursor">{String.fromCharCode(65 + index)}</a>
+            <div className="texter">
+              <span>{option}</span>
+            </div>
           </li>
         ))}
       </ul>
-      <button onClick={handleNextQuestion} disabled={selectedAnswer === ""}>
+      <button
+        className="next"
+        onClick={handleNextQuestion}
+        disabled={selectedAnswer === ""}
+      >
         Next Question
       </button>
     </div>

@@ -100,6 +100,8 @@
 import React, { useState } from "react";
 import "./SignUp.css"; // Import the CSS file
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -110,6 +112,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
 
   const validateForm = () => {
     let isValid = true;
@@ -157,12 +160,34 @@ const Signup = () => {
     e.preventDefault();
 
     if (validateForm()) {
-      // Form is valid, proceed with signup logic
-      // For example, make an API call to register the user
-      console.log("Signup successful!");
+      //   // Form is valid, proceed with signup logic
+      //   // For example, make an API call to register the user
+      //   console.log("Signup successful!");
+      // }
+      const userData = {
+        first_name: name,
+        address: address,
+        baseAirfield: baseAirfield,
+        licenseNo: licenseNo,
+        email: email,
+        password: password,
+      };
+
+      axios
+        .post("http://13.127.37.70:5000/api/v1/register", userData)
+        .then((response) => {
+          // Handle the successful response from the API
+          console.log("Signup successful!");
+          navigate("/login");
+
+          console.log(response.data); /// // You may log the response or perform other actions as needed
+        })
+        .catch((error) => {
+          // Handle errors that occur during the API call
+          console.error("Error signing up:", error);
+        });
     }
   };
-
   return (
     <div className="signup-container">
       <form className="signup-form" onSubmit={handleSubmit}>

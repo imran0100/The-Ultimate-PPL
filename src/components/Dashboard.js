@@ -151,19 +151,21 @@ const Dashboard = () => {
     navigate("/progress");
   };
   const handleLogout = () => {
-    localStorage.removeItem("user");
+    localStorage.removeItem("user_322");
     navigate("/");
   };
   const handleTest = (id) => {
     navigate(`/tttt/${id}`);
   };
+  let user = JSON.parse(localStorage.getItem("user_322"));
+  console.log(user.first_name);
   return (
     <div className="dashboard-container">
       <div className="dashboard-section">
         <h2>Dashboard</h2>
 
         <div className="dashboard-section">
-          <h3>User</h3>
+          <h3>{user.first_name}</h3>
           <div>
             <button onClick={handleLogout} className="logout-btn">
               Logout

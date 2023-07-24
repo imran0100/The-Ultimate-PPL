@@ -75,16 +75,21 @@ import Section2 from "./Section2";
 import Section3 from "./Section3";
 import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";
+import CouponRedemption from "./CouponRedemption";
+import TestPage from "./TestPage";
 
 function HomePage() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    navigate("/login");
+    localStorage.getItem("user_322")
+      ? navigate("/dashboard")
+      : navigate("/login");
   };
   const handleSignup = () => {
     navigate("/signup");
   };
+
   return (
     <div className="container animate__animated animate__fadeIn">
       <div id="container-nav">
@@ -93,11 +98,13 @@ function HomePage() {
 
           <div>
             <a className="link-item" onClick={handleLogin}>
-              Login
+              {localStorage.getItem("user_322") ? "Go to Dashboard" : "Login"}
             </a>
-            <a className="link-item" onClick={handleSignup}>
-              Signup
-            </a>
+            {!localStorage.getItem("user_322") && (
+              <a className="link-item" onClick={handleSignup}>
+                Signup
+              </a>
+            )}
           </div>
         </nav>
       </div>
@@ -110,8 +117,12 @@ function HomePage() {
             questions according to feedback.
           </p>
           <div className="div-button">
-            <button onClick={handleLogin}>Login</button>
-            <button onClick={handleSignup}>Signup</button>
+            <button onClick={handleLogin}>
+              {localStorage.getItem("user_322") ? "Go to Dashboard" : "Login"}
+            </button>
+            {!localStorage.getItem("user_322") && (
+              <button onClick={handleSignup}>Signup</button>
+            )}
           </div>
         </div>
         <div className="side-content"></div>
@@ -121,6 +132,8 @@ function HomePage() {
       <PricingPage />
       <Section2 />
       <Section3 />
+
+      <TestPage />
       <Footer />
     </div>
   );

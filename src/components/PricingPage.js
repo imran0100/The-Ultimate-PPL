@@ -1,56 +1,95 @@
 import React from "react";
 import "./PricingPage.css";
-import ReactScrollAnimation from "react-scroll-animation";
+// import ReactScrollAnimation from "react-scroll-animation";
 import "animate.css/animate.min.css"; // Import the animation styles
+import axios from "axios";
 
 const PricingPage = () => {
+  const data = [
+    { id: 1, title: "Basic", price: "99" },
+    { id: 2, title: "Pro", price: "129" },
+    { id: 3, title: "premium", price: "149" },
+  ];
+  let user = localStorage.getItem("user");
+  let id = user ? JSON.parse(user).id : null;
+
+  // const checkout = (plan) => {
+  //   fetch("http://localhost:5000/api/v1/create-subscription-checkout", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     mode: "cors",
+  //     body: JSON.stringify({ plan: plan, customerId: id }),
+  //   })
+  //     .then((res) => {
+  //       if (res.ok) res.json();
+  //       console.log(res);
+  //       return res.json().then((json) => Promise.reject(json));
+  //     })
+  //     .then(({ session }) => {
+  //       console.log(session.url, "ugugug");
+  //       window.location = session.url;
+  //     })
+  //     .catch((e) => {
+  //       console.log(e.error);
+  //     });
+  // };
+  const checkout = async (plan) => {
+    const url = "http://localhost:5000/api/v1/create-subscription-checkout";
+    const headers = {
+      "Content-Type": "application/json",
+    };
+    const data = { plan: plan, customerId: id };
+
+    try {
+      const res = await axios.post(url, data, { headers, mode: "cors" });
+
+      if (res.ok) res.json();
+
+      console.log(res.data);
+      const { session } = res.data;
+
+      window.location = session.url;
+    } catch (e) {
+      console.log(e.error);
+    }
+  };
+
   return (
     <div className="Pricing-Section">
       <h2>Choose Pricing</h2>
-      <ReactScrollAnimation animateIn="slideInRight" animateOnce={true}>
-        <div className="pricing-page">
-          <div className="pricing-plan">
-            <h2 className="plan-name">Basic Plan</h2>
-            <p className="plan-price">$9.99/month</p>
-            <ul className="plan-features">
-              <li>Feature 1</li>
-              <li>Feature 2</li>
-              <li>Feature 3</li>
-            </ul>
-            <div className="button-wrapper">
-              <button className="plan-button">Select Plan</button>
+      {/* <ReactScrollAnimation animateIn="slideInRight" animateOnce={true}> */}
+      <div className="pricing-page">
+        {data.map((item) => {
+          return (
+            <div className="pricing-plan">
+              <h2 className="plan-name">{item.title}</h2>
+              <p className="plan-price">{item.price}/month</p>
+              <ul className="plan-features">
+                <li>Feature 1</li>
+                <li>Feature 2</li>
+                <li>Feature 3</li>
+              </ul>
+              <div className="button-wrapper">
+                <button
+                  onClick={() => checkout(Number(item.price))}
+                  className="plan-button"
+                >
+                  Select Plan
+                </button>
+              </div>
             </div>
-          </div>
-          {/* <ReactScrollAnimation animateIn="zoomIn" animateOnce={true}> */}
-          <div className="pricing-plan">
-            <h2 className="plan-name">Pro Plan</h2>
-            <p className="plan-price">$19.99/month</p>
-            <ul className="plan-features">
-              <li>Feature 1</li>
-              <li>Feature 2</li>
-              <li>Feature 3</li>
-            </ul>
-            <div className="button-wrapper">
-              <button className="plan-button">Select Plan</button>
-            </div>
-          </div>
-          {/* </ReactScrollAnimation> */}
-          {/* <ReactScrollAnimation animateIn="slideInLeft" animateOnce={true}> */}
-          <div className="pricing-plan">
-            <h2 className="plan-name">Premium Plan</h2>
-            <p className="plan-price">$29.99/month</p>
-            <ul className="plan-features">
-              <li>Feature 1</li>
-              <li>Feature 2</li>
-              <li>Feature 3</li>
-            </ul>
-            <div className="button-wrapper">
-              <button className="plan-button">Select Plan</button>
-            </div>
-          </div>
-          {/* </ReactScrollAnimation> */}
-        </div>
-      </ReactScrollAnimation>
+          );
+        })}
+        {/* <ReactScrollAnimation animateIn="zoomIn" animateOnce={true}> */}
+
+        {/* </ReactScrollAnimation> */}
+        {/* <ReactScrollAnimation animateIn="slideInLeft" animateOnce={true}> */}
+
+        {/* </ReactScrollAnimation> */}
+      </div>
+      {/* </ReactScrollAnimation> */}
     </div>
   );
 };
