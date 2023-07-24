@@ -93,6 +93,7 @@ li.answerColorFalse {
   border: 1px solid #d9d9d9;
   border-radius: 9px;
   font-size: 16px;
+  margin-right: 1.5rem;
 }
 .next:disabled {
   opacity: 0.5;
@@ -124,7 +125,9 @@ li.answerColorFalse {
 .progressPercentage {
   font-size: 6rem !important;
 }
-
+.questionOption.selected {
+  background-color: #f0f0f0; /* Selected background color */
+}
 .QuestionFilter {
   display: flex;
   align-items: center;

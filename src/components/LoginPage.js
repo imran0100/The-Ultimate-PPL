@@ -225,7 +225,7 @@ const LoginPage = () => {
   const handleLogin = () => {
     let admin = false;
     if (admin) {
-      navigate("/admin");
+      navigate("/choose");
     } else {
       navigate("/dashboard");
     }
