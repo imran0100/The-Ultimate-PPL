@@ -5,7 +5,7 @@ import "./Success.css"; // Import the CSS file for this component
 function Success() {
   const navigate = useNavigate();
   const handlePayment = () => {
-    fetch("http://localhost:5000/api/v1/payment-success", {
+    fetch("http://13.127.37.70:5000/api/v1/payment-success", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

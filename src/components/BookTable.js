@@ -54,25 +54,28 @@ function BookTable() {
 
   return (
     <ReactScrollAnimation animateIn="zoomIn" animateOnce={true}>
-      <div className="book-table">
-        <table>
-          <thead>
-            <tr>
-              <th>Subject</th>
-              <th>No. of Questions</th>
-              <th>Marks</th>
-            </tr>
-          </thead>
-          <tbody>
-            {books.map((book, index) => (
-              <tr key={index}>
-                <td>{book.name}</td>
-                <td>{book.questions}</td>
-                <td>{book.marks}</td>
+      <div className="table-container">
+        {" "}
+        <div className="book-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Subject</th>
+                <th>No. of Questions</th>
+                <th>Marks</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {books.map((book, index) => (
+                <tr key={index}>
+                  <td>{book.name}</td>
+                  <td>{book.questions}</td>
+                  <td>{book.marks}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </ReactScrollAnimation>
   );

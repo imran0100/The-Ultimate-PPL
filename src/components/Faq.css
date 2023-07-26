@@ -1,0 +1,39 @@
+/* Faq.css */
+
+/* Reset default margins and padding for consistency */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between FAQ items */
+  margin: 7.2rem;
+}
+
+.faq-item {
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.faq-question {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.faq-answer {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Add some hover effect for the FAQ item */
+.faq-item:hover {
+  background-color: #f9f9f9;
+}

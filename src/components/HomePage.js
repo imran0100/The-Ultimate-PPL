@@ -66,17 +66,20 @@
 
 // export default HomePage;
 
-import logo from "../logo/WhatsApp Image 2023-07-12 at 9.58.35 AM.jpeg";
+import logo from "../logo/WhatsApp Image 2023-07-12 at 9.58.35 AM.png";
 import "animate.css/animate.min.css";
 import BookTable from "./BookTable";
 import AboutDatabasePage from "./AboutDatabasePage";
 import PricingPage from "./PricingPage";
 import Section2 from "./Section2";
 import Section3 from "./Section3";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Footer from "./Footer";
-import CouponRedemption from "./CouponRedemption";
+
 import TestPage from "./TestPage";
+import ChooseSubject from "./ChooseSubject";
+import Faq from "./Faq";
+import Contact from "./Contact";
 
 function HomePage() {
   const navigate = useNavigate();
@@ -96,14 +99,27 @@ function HomePage() {
         <nav>
           <img className="link-item" src={logo} alt="logo" />
 
-          <div>
-            <a className="link-item" onClick={handleLogin}>
-              {localStorage.getItem("user_322") ? "Go to Dashboard" : "Login"}
-            </a>
+          <div style={{ display: "flex", gap: "1rem" }}>
+            <Link to="/faq" className="link-item">
+              FAQ
+            </Link>
+            <Link to="/contact" className="link-item">
+              CONTACT US
+            </Link>
+
+            {localStorage.getItem("user_322") ? (
+              <Link to="/dashboard" className="link-item">
+                {localStorage.getItem("user_322") ? "GO TO DASHBOARD" : "LOGIN"}
+              </Link>
+            ) : (
+              <Link to="/login" className="link-item">
+                {localStorage.getItem("user_322") ? "GO TO DASHBOARD" : "LOGIN"}
+              </Link>
+            )}
             {!localStorage.getItem("user_322") && (
-              <a className="link-item" onClick={handleSignup}>
-                Signup
-              </a>
+              <Link to="/signup" className="link-item">
+                REGISTER
+              </Link>
             )}
           </div>
         </nav>
@@ -121,7 +137,7 @@ function HomePage() {
               {localStorage.getItem("user_322") ? "Go to Dashboard" : "Login"}
             </button>
             {!localStorage.getItem("user_322") && (
-              <button onClick={handleSignup}>Signup</button>
+              <button onClick={handleSignup}>Register</button>
             )}
           </div>
         </div>
@@ -132,7 +148,7 @@ function HomePage() {
       <PricingPage />
       <Section2 />
       <Section3 />
-
+      {/* <ChooseSubject /> */}
       <TestPage />
       <Footer />
     </div>

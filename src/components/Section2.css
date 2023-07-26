@@ -1,20 +1,41 @@
+/* Updated CSS for Section2 component */
 .section2 {
   display: grid;
   grid-template-columns: 1fr 1fr; /* Equal width columns */
   height: 100vh;
+  justify-content: center;
+  align-items: center;
+  margin: 0 6rem 0 6rem;
 }
 
 .img-div {
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* Start image from right side */
-  margin-right: 4rem;
+  justify-content: center; /* Center the image horizontally and vertically */
 }
 
 .img-phone {
   max-width: 40%;
   display: block;
   /* Center the image horizontally */
+}
+
+/* New CSS for background circle */
+.img-circle {
+  background: linear-gradient(
+    to bottom right,
+    #276cbe,
+    #1a237e
+  ); /* Set circle color to blue */
+  /* background: linear-gradient(180deg, #2234ae 0%, #191714 74%); */
+  background: linear-gradient(180deg, #3b52e9 33%, #0c192c 74%);
+
+  border-radius: 50%; /* Make it a circle using border-radius */
+  width: 600px;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .section2-right {
@@ -25,11 +46,13 @@
   box-sizing: border-box;
   justify-content: center; /* Include padding in the width calculation */
 }
+
 .section2-right p {
   line-height: 1.8;
   font-size: 1.2rem;
   padding-right: 2rem;
 }
+
 .section2-heading {
   text-align: left; /* Align heading to the left */
 }
@@ -52,5 +75,11 @@
 
   .img-phone {
     max-width: 80%; /* Adjust image width for smaller screens */
+  }
+
+  /* Adjust the size of the circle for smaller screens */
+  .img-circle {
+    width: 150px;
+    height: 150px;
   }
 }

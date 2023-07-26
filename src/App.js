@@ -48,6 +48,8 @@ import UserProgress from "./components/UserProgress";
 import PrivateRoutes from "./components/PrivateRoutes";
 import CouponRedemption from "./components/CouponRedemption";
 import Success from "./components/Success";
+import Faq from "./components/Faq";
+import Contact from "./components/Contact";
 function App() {
   return (
     <div className="App">
@@ -69,11 +71,13 @@ function App() {
             <Route path="/progress" element={<UserProgress />} />
             <Route path="/question/:id" element={<QuestionForm />} />
             <Route path="/choose" element={<ChooseSubject />} />
-            <Route path="/admin" element={<Admin />} />
           </Route>
+          <Route path="/admin" element={<Admin />} />
 
           <Route path="/login" element={<LoginPage />} />
           <Route path="/success" element={<Success />} />
+          <Route path="/faq" element={<Faq />} />
+          <Route path="/contact" element={<Contact />} />
 
           {/* <Route path="/test" element={<TestPage />} /> */}
         </Routes>

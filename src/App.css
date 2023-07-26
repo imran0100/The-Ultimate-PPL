@@ -19,20 +19,22 @@
   flex-direction: column;
   justify-self: center;
   align-items: center;
-  background: #1a1915;
+  background: #1a237e;
   height: 8rem;
 }
 
 #container-nav {
-  background: #184274;
+  /* background: #1a237e; */
+  background: linear-gradient(180deg, #2234ae 0%, #191714 74%);
 
   height: 4rem;
   max-width: 100%;
 }
 
 nav {
-  background: #184274;
+  /* background: #1a237e; */
   /* background: linear-gradient(to bottom right, #276cbe, #1a237e); */
+  background: linear-gradient(180deg, #2234ae 0%, #191714 74%);
 
   height: 4rem;
   display: flex;
@@ -106,8 +108,8 @@ nav img {
 }
 
 .div-button button:hover {
-  background-color: #1a237e;
-  color: #fff;
+  background-color: #27d6ff;
+  color: black;
 }
 
 .login {

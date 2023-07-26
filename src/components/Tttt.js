@@ -155,8 +155,9 @@
 import React, { useEffect, useState } from "react";
 import "./Tttt.css";
 import CircleProgress from "./CircleProgress";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios"; // Import axios library
+import logo from "../logo/WhatsApp Image 2023-07-12 at 9.58.35 AM.png";
 
 const Tttt = () => {
   const [questions, setQuestions] = useState([]);
@@ -249,52 +250,77 @@ const Tttt = () => {
   const options = currentQuestionObj.options;
 
   return (
-    <div className="tabcontent">
-      <div className="QuestionFilter">
-        <span>Filter Questions</span>
-        <select id="filter">
-          <option value="all">All</option>
-          <option value="recent">Recently Seen</option>
-          <option value="incorrect">Incorrectly Answered</option>
-          <option value="not-answered">Not Answered Before</option>
-        </select>
-      </div>
+    <>
+      <div id="container-nav">
+        <nav>
+          <img className="link-item" src={logo} alt="logo" />
 
-      <div className="questionText">
-        <span>{currentQuestionObj.qustion_name}</span>
+          <div style={{ display: "flex", gap: "1rem" }}>
+            <Link to="/faq" className="link-item">
+              FAQ
+            </Link>
+            <Link to="/contact" className="link-item">
+              CONTACT US
+            </Link>
+            <Link to="/dashboard" className="link-item">
+              {localStorage.getItem("user_322") ? "GO TO DASHBOARD" : "LOGIN"}
+            </Link>
+            {!localStorage.getItem("user_322") && (
+              <Link to="/signup" className="link-item">
+                REGISTER
+              </Link>
+            )}
+          </div>
+        </nav>
       </div>
-      <ul className="questionOptionList">
-        {options.map((option, index) => (
-          <li
-            key={index}
-            className={`questionOption ${
-              selectedAnswer !== "" &&
-              (selectedAnswer === index
-                ? "answerColor" +
-                  (index === options.indexOf(currentQuestionObj.correct_answer)
-                    ? "True"
-                    : "False")
-                : index === options.indexOf(currentQuestionObj.correct_answer)
-                ? "answerColorTrue"
-                : "")
-            }`}
-            onClick={() => handleAnswerSelect(index)}
-          >
-            <a className="cursor">{String.fromCharCode(65 + index)}</a>
-            <div className="texter">
-              <span>{option}</span>
-            </div>
-          </li>
-        ))}
-      </ul>
-      <button
-        className="next"
-        onClick={handleNextQuestion}
-        disabled={selectedAnswer === ""}
-      >
-        Next Question
-      </button>
-    </div>
+      <div className="tabcontent">
+        {/* <div className="QuestionFilter">
+          <span>Filter Questions</span>
+          <select id="filter">
+            <option value="all">All</option>
+            <option value="recent">Recently Seen</option>
+            <option value="incorrect">Incorrectly Answered</option>
+            <option value="not-answered">Not Answered Before</option>
+          </select>
+        </div> */}
+
+        <div className="questionText">
+          <span>{currentQuestionObj.qustion_name}</span>
+        </div>
+        <ul className="questionOptionList">
+          {options.map((option, index) => (
+            <li
+              key={index}
+              className={`questionOption ${
+                selectedAnswer !== "" &&
+                (selectedAnswer === index
+                  ? "answerColor" +
+                    (index ===
+                    options.indexOf(currentQuestionObj.correct_answer)
+                      ? "True"
+                      : "False")
+                  : index === options.indexOf(currentQuestionObj.correct_answer)
+                  ? "answerColorTrue"
+                  : "")
+              }`}
+              onClick={() => handleAnswerSelect(index)}
+            >
+              <a className="cursor">{String.fromCharCode(65 + index)}</a>
+              <div className="texter">
+                <span>{option}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <button
+          className="next"
+          onClick={handleNextQuestion}
+          disabled={selectedAnswer === ""}
+        >
+          Next Question
+        </button>
+      </div>
+    </>
   );
 };
 

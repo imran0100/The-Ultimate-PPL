@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../logo/WhatsApp Image 2023-07-12 at 9.58.35 AM.jpeg";
+import logo from "../logo/WhatsApp Image 2023-07-12 at 9.58.35 AM.png";
 function Footer() {
   return (
     <div className="footer">
