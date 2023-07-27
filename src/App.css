@@ -201,7 +201,9 @@ nav img {
     width: 160px;
     font-size: 1.2em;
   }
-
+  #container-nav {
+    height: 5rem;
+  }
   .login {
     width: 300px;
     height: 300px;
