@@ -35,25 +35,25 @@
 //   //       console.log(e.error);
 //   //     });
 //   // };
-//   const checkout = async (plan) => {
-//     const url = "http://13.127.37.70:5000/api/v1/create_subscription_checkout";
-//     const headers = {
-//       "Content-Type": "application/json",
-//     };
-//     const data = { plan: plan, customerId: id };
-
-//     try {
-//       const res = await axios.post(url, data, { headers, mode: "cors" });
-
-//       if (res.ok) res.json();
-
-//       // const { session } = res.data;
-//       // console.log(session, "ygughycvgcg");
-//       window.location = res.data.data.url;
-//     } catch (e) {
-//       console.log(e.error);
-//     }
+// const checkout = async (plan) => {
+//   const url = "http://13.127.37.70:5000/api/v1/create_subscription_checkout";
+//   const headers = {
+//     "Content-Type": "application/json",
 //   };
+//   const data = { plan: plan, customerId: id };
+
+//   try {
+//     const res = await axios.post(url, data, { headers, mode: "cors" });
+
+//     if (res.ok) res.json();
+
+//     // const { session } = res.data;
+//     // console.log(session, "ygughycvgcg");
+//     window.location = res.data.data.url;
+//   } catch (e) {
+//     console.log(e.error);
+//   }
+// };
 
 //   return (
 //     <div className="Pricing-Section">
@@ -97,29 +97,49 @@
 ///////////////////////////////////////////////////////////////////////////////
 import React from "react";
 import "./PricingPage.css";
-
+import axios from "axios";
 const PricingPage = () => {
   const pricingData = [
     {
       title: "Basic",
-      pricing: "99$",
+      pricing: "99",
       discount: "Save $9",
       features: ["One account", "Unlimited songs", "Customized playlist"],
     },
     {
       title: "Pro",
-      pricing: "129$",
+      pricing: "129",
       discount: "Save $15",
       features: ["One account", "Unlimited songs", "Customized playlist"],
     },
     {
       title: "Ultimate",
-      pricing: "149$",
+      pricing: "149",
       discount: "Save $25",
       features: ["Six accounts", "Unlimited songs", "Customized playlist"],
     },
   ];
+  const checkout = async (plan) => {
+    const url = "http://localhost:5000/api/v1/create-subscription-checkout";
+    const headers = {
+      "Content-Type": "application/json",
+    };
+    const data = { plan: plan };
 
+    try {
+      const res = await axios.post(url, data, { headers, mode: "cors" });
+
+      if (res.ok) res.json();
+
+      const { session } = res.data;
+      // console.log(session, "ygughycvgcg");
+      // console.log(session.url);
+      window.location = session.url;
+      // window.location = res.data.data.url;
+    } catch (e) {
+      console.log(e.error);
+    }
+  };
   return (
     <div className="main">
       {" "}
@@ -129,8 +149,7 @@ const PricingPage = () => {
             <div className="card" key={index}>
               <h2 className="card_title">{pricingItem.title}</h2>
               <p className="pricing">
-                {pricingItem.pricing}
-                <span className="small">/per month</span>
+                {pricingItem.pricing}$<span className="small">/per month</span>
               </p>
               <p>{pricingItem.discount}</p>
               <hr />
@@ -139,7 +158,10 @@ const PricingPage = () => {
                   <li key={index}>{feature}</li>
                 ))}
               </ul>
-              <a href="#" className="cta_btn">
+              <a
+                className="cta_btn"
+                onClick={() => checkout(Number(pricingItem.pricing))}
+              >
                 Buy Now
               </a>
             </div>

@@ -11,7 +11,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px; /* Space between FAQ items */
-  margin: 7.2rem;
+  margin: 7.6rem;
 }
 
 .faq-item {
@@ -35,5 +35,6 @@
 
 /* Add some hover effect for the FAQ item */
 .faq-item:hover {
-  background-color: #f9f9f9;
+  background: linear-gradient(to bottom right, #276cbe, #1a237e);
+  color: #fff;
 }

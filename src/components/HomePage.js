@@ -80,7 +80,7 @@ import TestPage from "./TestPage";
 import ChooseSubject from "./ChooseSubject";
 import Faq from "./Faq";
 import Contact from "./Contact";
-
+import Dashboard from "./Dashboard";
 function HomePage() {
   const navigate = useNavigate();
 
@@ -150,6 +150,7 @@ function HomePage() {
       <Section3 />
       {/* <ChooseSubject /> */}
       <TestPage />
+      {/* <Dashboard /> */}
       <Footer />
     </div>
   );

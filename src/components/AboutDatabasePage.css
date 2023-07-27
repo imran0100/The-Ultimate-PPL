@@ -51,4 +51,8 @@ section h2 {
   .row {
     grid-template-columns: 1fr;
   }
+  section {
+    padding: 0;
+    margin-top: 3rem;
+  }
 }

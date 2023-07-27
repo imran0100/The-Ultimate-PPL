@@ -50,4 +50,7 @@
   .row {
     grid-template-columns: 1fr;
   }
+  .section3 {
+    padding: 0;
+  }
 }

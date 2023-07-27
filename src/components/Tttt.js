@@ -197,7 +197,8 @@ const Tttt = () => {
     setResultData((prevResultData) => [...prevResultData, questionData]);
 
     setSelectedAnswer("");
-    !localStorage.getItem("subscribe") && navigate("/pricing");
+    const sub = JSON.parse(localStorage.getItem("user_322"));
+    !sub.subscription && navigate("/pricing");
     setCurrentQuestion(currentQuestion + 1);
   };
 
@@ -256,6 +257,9 @@ const Tttt = () => {
           <img className="link-item" src={logo} alt="logo" />
 
           <div style={{ display: "flex", gap: "1rem" }}>
+            <Link to="/" className="link-item">
+              HOME
+            </Link>
             <Link to="/faq" className="link-item">
               FAQ
             </Link>

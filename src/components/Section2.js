@@ -42,13 +42,16 @@ import "animate.css/animate.min.css"; // Import the animation styles
 function Section2() {
   return (
     <div className="section2">
-      <ReactScrollAnimation animateIn="fadeIn" animateOnce={true}>
-        <div className="img-div">
-          <div className="img-circle">
-            <img className="img-phone" src={image} alt="Smartphone" />
+      <div className="inside">
+        <ReactScrollAnimation animateIn="fadeIn" animateOnce={true}>
+          <div className="img-div">
+            <div className="img-circle">
+              <img className="img-phone" src={image} alt="Smartphone" />
+            </div>
           </div>
-        </div>
-      </ReactScrollAnimation>
+        </ReactScrollAnimation>
+      </div>
+
       <div className="section2-right">
         <h1 className="section2-heading">What Is The Difference?</h1>
         <p>

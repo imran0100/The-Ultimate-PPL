@@ -124,7 +124,8 @@
 import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import logo from "../logo/WhatsApp Image 2023-07-12 at 9.58.35 AM.png";
 
 const Dashboard = () => {
   const [subjects, setSubjects] = useState([]);
@@ -158,46 +159,66 @@ const Dashboard = () => {
     navigate(`/tttt/${id}`);
   };
   let user = JSON.parse(localStorage.getItem("user_322"));
-  console.log(user.first_name);
+  // console.log(user.first_name);
   return (
-    <div className="dashboard-container">
-      <div className="dashboard-section">
-        <h2>Dashboard</h2>
+    <>
+      {" "}
+      <div id="container-nav">
+        <nav>
+          <img className="link-item" src={logo} alt="logo" />
+
+          <div style={{ display: "flex", gap: "1rem" }}>
+            <Link to="/" className="link-item">
+              HOME
+            </Link>
+            <Link to="/faq" className="link-item">
+              FAQ
+            </Link>
+            <Link to="/contact" className="link-item">
+              CONTACT US
+            </Link>
+          </div>
+        </nav>
+      </div>
+      <div className="dashboard-container">
+        <div className="dashboard-section">
+          <h2>Dashboard</h2>
+
+          <div className="dashboard-section">
+            {/* <h3>{user.first_name}</h3> */}
+            <div>
+              <button onClick={handleLogout} className="logout-btn">
+                Logout
+              </button>
+              <button onClick={handleProgress} className="see-progress-btn">
+                See Your Progress
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <hr className="dashboard-divider" />
 
         <div className="dashboard-section">
-          <h3>{user.first_name}</h3>
-          <div>
-            <button onClick={handleLogout} className="logout-btn">
-              Logout
-            </button>
-            <button onClick={handleProgress} className="see-progress-btn">
-              See Your Progress
-            </button>
+          <div className="book-table">
+            <table>
+              <thead>
+                <tr>
+                  <th> Select a Subject</th>
+                </tr>
+              </thead>
+              <tbody>
+                {subjects.map((book, index) => (
+                  <tr onClick={() => handleTest(book.sub_id)} key={book.sub_id}>
+                    <td>{book.sub_name}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
-
-      <hr className="dashboard-divider" />
-
-      <div className="dashboard-section">
-        <div className="book-table">
-          <table>
-            <thead>
-              <tr>
-                <th> Select a Subject</th>
-              </tr>
-            </thead>
-            <tbody>
-              {subjects.map((book, index) => (
-                <tr onClick={() => handleTest(book.sub_id)} key={book.sub_id}>
-                  <td>{book.sub_name}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+    </>
   );
 };
 
