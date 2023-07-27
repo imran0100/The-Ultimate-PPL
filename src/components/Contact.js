@@ -103,7 +103,7 @@ const Contact = () => {
                 </div>
                 <button className="submit-btn">Submit</button>
               </div>
-              <div className="social-media-links">
+              {/* <div className="social-media-links">
                 <a href="#" id="ix94i-2">
                   <img
                     className="link-img"
@@ -128,7 +128,7 @@ const Contact = () => {
                     src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-instagram.png"
                   />
                 </a>
-              </div>
+              </div> */}
             </form>
           </div>
         </div>
