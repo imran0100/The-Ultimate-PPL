@@ -132,8 +132,11 @@ const PricingPage = () => {
       if (res.ok) res.json();
 
       const { session } = res.data;
-      // console.log(session, "ygughycvgcg");
+      console.log(session, "ygughycvgcg");
       // console.log(session.url);
+      const existingData = JSON.parse(localStorage.getItem("user_322"));
+      const updatedData = { ...existingData, sessionId: session.id };
+      localStorage.setItem("user_322", JSON.stringify(updatedData));
       window.location = session.url;
       // window.location = res.data.data.url;
     } catch (e) {

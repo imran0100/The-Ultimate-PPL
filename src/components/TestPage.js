@@ -24,6 +24,7 @@ const TestPage = () => {
       console.log(error);
     }
   };
+  console.log(questions);
   const handleSubmit = () => {
     setSubmitted(true);
   };

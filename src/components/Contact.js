@@ -1,15 +1,21 @@
 import React from "react";
 import "./Contact.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../logo/WhatsApp Image 2023-07-12 at 9.58.35 AM.png";
 
 const Contact = () => {
+  const navigate = useNavigate();
   return (
     <>
       {" "}
       <div id="container-nav">
         <nav>
-          <img className="link-item" src={logo} alt="logo" />
+          <img
+            onClick={() => navigate("/")}
+            className="link-item"
+            src={logo}
+            alt="logo"
+          />
 
           <div style={{ display: "flex", gap: "1rem" }}>
             <Link to="/" className="link-item">

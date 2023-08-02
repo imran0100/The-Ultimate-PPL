@@ -60,6 +60,9 @@ nav img {
   text-decoration: none;
   font-size: 1.5rem;
 }
+nav img:hover {
+  cursor: pointer;
+}
 
 .section {
   max-width: 100%;
@@ -115,7 +118,10 @@ nav img {
 
 .div-button button:hover {
   background-color: #27d6ff;
-  color: black;
+  background: linear-gradient(180deg, #2234ae 0%, #191714 74%);
+  transition: all 0.1s ease-in-out;
+
+  color: white;
 }
 
 .login {

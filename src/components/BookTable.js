@@ -55,7 +55,6 @@ function BookTable() {
   return (
     <ReactScrollAnimation animateIn="zoomIn" animateOnce={true}>
       <div className="table-container">
-        {" "}
         <div className="book-table">
           <table>
             <thead>

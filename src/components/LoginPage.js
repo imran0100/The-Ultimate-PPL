@@ -367,7 +367,7 @@ const LoginPage = () => {
           </p>
         </form>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

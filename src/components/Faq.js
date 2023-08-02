@@ -93,7 +93,7 @@ const Faq = () => {
           </div>
         ))}
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
