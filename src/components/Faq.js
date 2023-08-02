@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "./Faq.css"; // Create a CSS file to style the FAQ component
 import Footer from "./Footer";
 import logo from "../logo/WhatsApp Image 2023-07-12 at 9.58.35 AM.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Faq = () => {
+  const navigate = useNavigate();
   // State to manage the active accordion
   const [activeAccordion, setActiveAccordion] = useState(null);
 
@@ -51,7 +52,12 @@ const Faq = () => {
     <>
       <div id="container-nav">
         <nav>
-          <img className="link-item" src={logo} alt="logo" />
+          <img
+            onClick={() => navigate("/")}
+            className="link-item"
+            src={logo}
+            alt="logo"
+          />
 
           <div style={{ display: "flex", gap: "1rem" }}>
             <Link to="/" className="link-item">

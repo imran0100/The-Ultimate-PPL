@@ -24,11 +24,12 @@
   padding: 10px;
   border-radius: 5px;
   text-align: left;
+  /* transition: all 0.3s ease 0s; */
 }
 
 .col:hover {
   background: linear-gradient(to bottom right, #276cbe, #1a237e);
-  cursor: pointer;
+  /* cursor: pointer; */
   color: white;
 }
 

@@ -114,6 +114,7 @@ nav img:hover {
   color: #fff;
   font-size: 1.5em;
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease 0s;
 }
 
 .div-button button:hover {

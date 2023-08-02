@@ -306,7 +306,12 @@ const LoginPage = () => {
       {" "}
       <div id="container-nav">
         <nav>
-          <img className="link-item" src={logo} alt="logo" />
+          <img
+            onClick={() => navigate("/")}
+            className="link-item"
+            src={logo}
+            alt="logo"
+          />
 
           <div style={{ display: "flex", gap: "1rem" }}>
             <Link to="/" className="link-item">

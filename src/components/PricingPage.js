@@ -127,7 +127,7 @@ const PricingPage = () => {
     const data = { plan: plan };
 
     try {
-      const res = await axios.post(url, data, { headers });
+      const res = await axios.post(url, data, { headers, mode: "cors" });
 
       if (res.ok) res.json();
 
