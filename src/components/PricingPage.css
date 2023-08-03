@@ -80,10 +80,15 @@
 
 .main {
   min-height: 100vh;
-  /* background: url("https://images.pexels.com/photos/2832772/pexels-photo-2832772.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"); */
-  background: linear-gradient(315deg, #2234ae 0%, #191714 74%);
+  /* Background image for parallax scrolling */
+  background: url("https://img.freepik.com/free-vector/winter-mountain-night-landscape-with-chalet-houses_107791-17992.jpg?w=1920&t=st=1691057476~exp=1691058076~hmac=ca5535569b4cbf36dc6b50caf877ddd9aa252f6472692a284826bd2e8c749ced");
+
+  /* Parallax scrolling properties */
+  background-attachment: fixed;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
   color: white;
   font-family: Roboto;
   font-size: 16px;
@@ -112,7 +117,7 @@
   padding: 50px;
   background: rgba(255, 255, 255, 0.1);
   border: 2px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
   border-radius: 25px;
   transition: background 0.3s ease; /* Add the transition property */
 }
@@ -156,6 +161,7 @@ a.cta_btn {
   text-align: center;
   /* background: rgba(21, 23, 24, 0.7); */
   background: linear-gradient(180deg, #2234ae 0%, #191714 74%);
+  /* background: linear-gradient(180deg, #5a6adbd9 0%, #041193 74%); */
 
   border-radius: 29px;
   padding: 20px 0;
