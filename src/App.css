@@ -32,7 +32,11 @@ body {
 #container-nav {
   /* background: #1a237e; */
   background: linear-gradient(180deg, #2234ae 0%, #191714 74%);
-
+  /* position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; */
   height: 4rem;
   max-width: 100%;
 }
@@ -72,8 +76,12 @@ nav img:hover {
   margin: 0;
   display: flex;
   background-image: url("https://images.pexels.com/photos/91217/pexels-photo-91217.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1");
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat;
   background-position: center center;
+  background-size: cover; */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
 }
