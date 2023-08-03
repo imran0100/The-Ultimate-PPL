@@ -152,7 +152,9 @@ const PricingPage = () => {
             <div className="card" key={index}>
               <h2 className="card_title">{pricingItem.title}</h2>
               <p className="pricing">
-                {pricingItem.pricing}$<span className="small">/per month</span>
+                <span style={{ fontSize: "3rem" }}>$</span>
+                {pricingItem.pricing}
+                <span className="small">/per month</span>
               </p>
               <p>{pricingItem.discount}</p>
               <hr />

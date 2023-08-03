@@ -81,6 +81,8 @@ import ChooseSubject from "./ChooseSubject";
 import Faq from "./Faq";
 import Contact from "./Contact";
 import Dashboard from "./Dashboard";
+import PricingTable2 from "./PricingTable2";
+import PricingTable from "./PricingTable";
 function HomePage() {
   const navigate = useNavigate();
 
@@ -156,6 +158,8 @@ function HomePage() {
       {/* <ChooseSubject /> */}
       <TestPage />
       {/* <Dashboard /> */}
+      <PricingTable />
+      <PricingTable2 />
       <Footer />
     </div>
   );

@@ -29,7 +29,7 @@
   ); /* Set circle color to blue */
   /* background: linear-gradient(180deg, #2234ae 0%, #191714 74%); */
   background: linear-gradient(180deg, #3b52e9 33%, #0c192c 74%);
-  background: linear-gradient(180deg, #ebeef0 33%, #15171a 82%);
+  background: linear-gradient(180deg, #ebeef0 33%, #d9dfe9 82%);
   border-radius: 50%; /* Make it a circle using border-radius */
   width: 600px;
   height: 600px;
