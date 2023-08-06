@@ -193,6 +193,13 @@ const Dashboard = () => {
               <button onClick={handleProgress} className="see-progress-btn">
                 See Your Progress
               </button>
+              <button
+                style={{ backgroundColor: "yellow", color: "black" }}
+                onClick={() => navigate("/notification")}
+                className="see-progress-btn"
+              >
+                Notifications
+              </button>
             </div>
           </div>
         </div>

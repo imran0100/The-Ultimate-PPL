@@ -83,6 +83,8 @@ import Contact from "./Contact";
 import Dashboard from "./Dashboard";
 import PricingTable2 from "./PricingTable2";
 import PricingTable from "./PricingTable";
+import Video from "./Video";
+import AAA from "./AAA";
 function HomePage() {
   const navigate = useNavigate();
 
@@ -160,6 +162,8 @@ function HomePage() {
       {/* <Dashboard /> */}
       <PricingTable />
       <PricingTable2 />
+      <Video />
+      {/* <AAA /> */}
       <Footer />
     </div>
   );

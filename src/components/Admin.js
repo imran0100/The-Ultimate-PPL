@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import "./Admin.css"; // Import the CSS file
 
 function Admin() {
   const navigate = useNavigate();
@@ -7,25 +8,27 @@ function Admin() {
   const handleAddQuestion = () => {
     navigate("/choose");
   };
+  const handleEdit = () => {
+    navigate("/aaa");
+  };
+  const handleLogout = () => {
+    localStorage.removeItem("user_322");
+    navigate("/");
+  };
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "column",
-        height: "100vh",
-      }}
-    >
-      <button onClick={handleAddQuestion}>Add Question</button>
-      <br />
-      <button>Edit Question</button>
-      <br />
+    <div className="admin-container">
+      <div className="admin-item item1" onClick={handleAddQuestion}>
+        Add Question
+      </div>
+      <div className="admin-item item2" onClick={handleEdit}>
+        Edit Question
+      </div>
+      <div className="admin-item item3">View Students Progress</div>
+      <div className="admin-item item4">Notification</div>
 
-      <button>view students Progress</button>
-      <br />
-
-      <button>logout</button>
+      <div className="admin-item item5" onClick={handleLogout}>
+        Logout
+      </div>
     </div>
   );
 }

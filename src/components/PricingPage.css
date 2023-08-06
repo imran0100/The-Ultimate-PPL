@@ -116,6 +116,8 @@
 .card {
   padding: 50px;
   background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.46); /* Change the background on hover */
+
   border: 2px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(px);
   border-radius: 25px;
@@ -125,7 +127,11 @@
 /* ... Previous CSS ... */
 
 .card:hover {
-  background: rgba(255, 255, 255, 0.46); /* Change the background on hover */
+  background: rgba(255, 255, 255, 0.46);
+  background: rgba(255, 255, 255, 0.1);
+  background: rgb(255 255 255 / 89%);
+  color: black;
+  /* Change the background on hover */
 }
 .card_title {
   font-weight: normal;
@@ -200,9 +206,10 @@ a.cta_btn:hover {
   text-decoration: underline;
   background-color: black;
 }
+
 @media only screen and (max-width: 1024px) {
   .grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 2%;
   }
 }

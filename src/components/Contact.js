@@ -7,7 +7,6 @@ const Contact = () => {
   const navigate = useNavigate();
   return (
     <>
-      {" "}
       <div id="container-nav">
         <nav>
           <img

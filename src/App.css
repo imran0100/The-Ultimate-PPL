@@ -20,13 +20,26 @@ body {
 
 .footer {
   color: white;
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
+  gap: 0.3rem;
   flex-direction: column;
   justify-self: center;
   align-items: center;
   background: #1a237e;
-  height: 8rem;
+  /* height: 8rem; */
+}
+.facebook:hover {
+  color: #96c3f6;
+  cursor: pointer;
+}
+.twitter:hover {
+  cursor: pointer;
+  color: #1a90d9;
+}
+.instagram:hover {
+  cursor: pointer;
+  color: red;
 }
 
 #container-nav {
@@ -225,7 +238,7 @@ nav img:hover {
   }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 440px) {
   /* Adjust the styles for screens up to 480px width (smaller mobile devices) */
 
   .footer img {

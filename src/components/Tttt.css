@@ -143,6 +143,9 @@ li.answerColorFalse {
     width: 90%;
     margin: 2rem;
   }
+  .result-data {
+    font-size: 1rem;
+  }
 }
 /* /////////////////////////// */
 .questionMenu {
@@ -165,6 +168,7 @@ li.answerColorFalse {
   padding: 1rem;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  align-content: flex-start;
 }
 
 .questionMenuItem {
@@ -183,21 +187,33 @@ li.answerColorFalse {
 }
 
 .questionMenuItem.active {
-  background-color: #007bff;
-  color: #fff;
+  border: 1px solid #007bff;
+  color: black;
 }
 .Test-Container {
   display: flex;
 }
-/* vfeg/////////////////////////////////////////////////////// */
+/* vfeg///////////////yaha pe true ka color green aur false ka color red tha//////////////////////////////////////// */
 .questionMenuItem.correct {
-  background-color: #18ad18;
+  background-color: #007bff;
   color: #fff;
-  border: 1px solid #18ad18;
+  border: 1px solid #007bff;
 }
 
 .questionMenuItem.wrong {
-  background-color: red;
+  background-color: #007bff;
   color: #fff;
-  border: 1px solid red;
+  border: 1px solid #007bff;
+}
+.result-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.result-data {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

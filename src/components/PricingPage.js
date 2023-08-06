@@ -145,7 +145,6 @@ const PricingPage = () => {
   };
   return (
     <div className="main">
-      {" "}
       <div className="container">
         <div className="grid">
           {pricingData.map((pricingItem, index) => (
@@ -178,3 +177,4 @@ const PricingPage = () => {
 };
 
 export default PricingPage;
+//

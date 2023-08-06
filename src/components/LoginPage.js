@@ -229,7 +229,7 @@ const LoginPage = () => {
     console.log(admin.isAdmin, "fiksahkash");
     if (admin) {
       if (admin.isAdmin) {
-        navigate("/choose");
+        navigate("/admin");
       } else {
         navigate("/dashboard");
       }

@@ -46,10 +46,11 @@ import Admin from "./components/Admin";
 import ChooseSubject from "./components/ChooseSubject";
 import UserProgress from "./components/UserProgress";
 import PrivateRoutes from "./components/PrivateRoutes";
-import CouponRedemption from "./components/CouponRedemption";
 import Success from "./components/Success";
 import Faq from "./components/Faq";
 import Contact from "./components/Contact";
+import Notification from "./components/Notification";
+import AAA from "./components/AAA";
 function App() {
   return (
     <div className="App">
@@ -63,6 +64,8 @@ function App() {
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/section2" element={<Section2 />} />
           <Route path="/section3" element={<Section3 />} />
+          <Route path="/aaa" element={<AAA />} />
+
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
 
           <Route element={<PrivateRoutes />}>
@@ -71,6 +74,7 @@ function App() {
             <Route path="/progress" element={<UserProgress />} />
             <Route path="/question/:id" element={<QuestionForm />} />
             <Route path="/choose" element={<ChooseSubject />} />
+            <Route path="/notification" element={<Notification />} />
           </Route>
           <Route path="/admin" element={<Admin />} />
 

@@ -1,5 +1,7 @@
 import React from "react";
 import "./AboutDatabasePage.css";
+import { FaBook, FaSearch, FaList } from "react-icons/fa";
+
 function AboutDatabasePage() {
   return (
     <div>
@@ -11,30 +13,42 @@ function AboutDatabasePage() {
           most frequently.
         </p>
 
-        <div class="row">
-          <div class="col-1">
+        <div className="row">
+          <div className="col-1">
             <h3>EASA 2016 (ECQB 7.0) Database</h3>
-            <p>
+            <div className="cl">
+              {" "}
+              <div className="icon">
+                <FaBook className="icon-color" size={30} />
+              </div>
               The Last Updated EASA ECQB 7.0 Question Bank, Approximately 100
               new questions added every month, We keep updated our database with
               students feedback.
-            </p>
+            </div>
           </div>
-          <div class="col-1">
+          <div className="col-1">
             <h3>EASA 2021 Database</h3>
-            <p>
+            <div className="cl">
+              {" "}
+              <div className="icon">
+                <FaSearch className="icon-color" size={30} />
+              </div>
               The EASA 2021 database has been released! This database has a
               different structure of learning objectives. Some objectives were
               added or moved, while others were taken out.
-            </p>
+            </div>
           </div>
-          <div class="col-1">
+          <div className="col-1">
             <h3>Multiple Choice Questions</h3>
-            <p>
+            <div className="cl">
+              {" "}
+              <div className="icon">
+                <FaList className="icon-color" size={30} />
+              </div>
               Over 10,000 ATPL(A) multiple choice exam questions. Most of
               questions have detailed explanation taken from ICAO ANNEXES AND
               DOC SERIES.
-            </p>
+            </div>
           </div>
         </div>
       </section>
