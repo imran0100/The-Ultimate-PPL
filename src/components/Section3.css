@@ -29,6 +29,7 @@
 
 .col:hover {
   background: linear-gradient(to bottom right, #276cbe, #1a237e);
+
   /* cursor: pointer; */
   color: white;
 }

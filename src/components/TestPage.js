@@ -180,6 +180,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Tttt.css"; // Import the CSS file for styling
 import QuestionMenu from "./QuestionMenu";
+import CircleProgress from "./CircleProgress";
 
 const TestPage = () => {
   const [questions, setQuestions] = useState([
@@ -283,7 +284,26 @@ const TestPage = () => {
     return (
       <div className="result-container">
         <h1>Test Results</h1>
-        <p style={{ fontSize: "2rem" }}>Score: {score}</p>
+        <div className="result-heading">
+          {" "}
+          <p style={{ fontSize: "2rem" }}>
+            Score:{" "}
+            <span
+              style={{ color: "green", fontWeight: "600", fontSize: "2rem" }}
+            >
+              {score}
+            </span>
+          </p>
+          <p style={{ fontSize: "2rem" }}>Progress</p>
+          <div className="cirle-inside">
+            <div>
+              <CircleProgress percentage={(score / resultData.length) * 100} />
+            </div>
+            <p className="circle-percentage">
+              {(score / resultData.length) * 100}%
+            </p>
+          </div>
+        </div>
         {resultData.map((questionData, index) => (
           <div className="result-data" key={index}>
             <h4> {questionData.question}</h4>
